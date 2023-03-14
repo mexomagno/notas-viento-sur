@@ -85,7 +85,7 @@ $( document ).ready(function() {
     const whitelist = [0,]
     var gid = Object.fromEntries(  
       new URLSearchParams(window.location.search)
-    )?.id
+    )?.gid
     if (!gid || !whitelist.map(id => `${id}`).includes(gid)) {
       console.log("error, alumno no existe")
       $('.loading').hide()
