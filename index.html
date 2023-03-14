@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js" integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+  <style>
+body {
+    margin: 0;            /* Reset default margin */
+}
+iframe {
+    display: block;       /* iframes are inline by default */
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
+#footer {
+  display: none;
+}
+  </style>
+</head>
+<body>
+  <iframe id="iframe" src="" frameborder="0"  height="100%" width="100%"></iframe>
+</body>
+<script>
+  // A $( document ).ready() block.
+const DOC_URL = "https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRIjtJj1cNnd2nzMA3jDGng3vRR8pB37nTK9mcA-oHEcmtnCN7H093C6eAVfonEnP_1MgTTPmsqx4Tn/pubhtml?single=true&gid="
+$( document ).ready(function() {
+    console.log( "ready!" );
+    // argument
+    const GIDS = {
+      franco: 0,
+    }
+    var params = Object.fromEntries(  
+      new URLSearchParams(window.location.search)
+    )
+    const src = `${DOC_URL}${GIDS[params.alumno]}`
+    console.log("new url", src)
+    $(iframe).attr('src', `${DOC_URL}${GIDS[params.alumno]}`)
+
+});
+</script>
+</html>
